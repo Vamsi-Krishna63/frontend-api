@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Frontend</title>
+</head>
+<body>
+  <h1>Frontend → Backend Test</h1>
+
+  <button onclick="checkHealth()">Check Health</button>
+  <button onclick="greet()">Greet</button>
+
+  <pre id="output"></pre>
+
+  <script>
+    const BACKEND_URL = "PASTE_BACKEND_URL_HERE";
+
+    async function checkHealth() {
+      const res = await fetch(`${BACKEND_URL}/health`);
+      const data = await res.json();
+      document.getElementById("output").innerText = JSON.stringify(data, null, 2);
+    }
+
+    async function greet() {
+      const res = await fetch(`${BACKEND_URL}/greet`);
+      const data = await res.json();
+      document.getElementById("output").innerText = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>

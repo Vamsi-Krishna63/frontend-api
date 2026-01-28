@@ -14,16 +14,18 @@
   <pre id="output"></pre>
 
   <script>
-    const BACKEND_URL = "https://backend-api-630923382979.us-central1.run.app";
+    window.BACKEND_URL = "{{BACKEND_URL}}";
+  </script>
 
+  <script>
     async function checkHealth() {
-      const res = await fetch(`${BACKEND_URL}/health`);
+      const res = await fetch(`${window.BACKEND_URL}/health`);
       const data = await res.json();
       document.getElementById("output").innerText = JSON.stringify(data, null, 2);
     }
 
     async function greet() {
-      const res = await fetch(`${BACKEND_URL}/greet`);
+      const res = await fetch(`${window.BACKEND_URL}/greet`);
       const data = await res.json();
       document.getElementById("output").innerText = JSON.stringify(data, null, 2);
     }

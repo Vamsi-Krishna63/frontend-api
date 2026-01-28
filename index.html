@@ -2,32 +2,30 @@
 <html>
 
 <head>
-  <title>Simple Frontend</title>
+  <title>Frontend → Backend Test</title>
 </head>
 
 <body>
-  <h1>Frontend → Backend Test</h1>
+  <h1>Frontend ↔ Backend Connection</h1>
 
   <button onclick="checkHealth()">Check Health</button>
   <button onclick="greet()">Greet</button>
 
-  <pre id="output"></pre>
+  <pre id="output">No response yet</pre>
 
   <script>
-    window.BACKEND_URL = "{{BACKEND_URL}}";
-  </script>
+    const BACKEND_URL = "https://backend-api-630923382979.us-central1.run.app";
 
-  <script>
     async function checkHealth() {
-      const res = await fetch(`${window.BACKEND_URL}/health`);
-      const data = await res.json();
-      document.getElementById("output").innerText = JSON.stringify(data, null, 2);
+      const res = await fetch(`${BACKEND_URL}/api/health`);
+      document.getElementById("output").textContent =
+        JSON.stringify(await res.json(), null, 2);
     }
 
     async function greet() {
-      const res = await fetch(`${window.BACKEND_URL}/greet`);
-      const data = await res.json();
-      document.getElementById("output").innerText = JSON.stringify(data, null, 2);
+      const res = await fetch(`${BACKEND_URL}/api/greet/Vamsi`);
+      document.getElementById("output").textContent =
+        JSON.stringify(await res.json(), null, 2);
     }
   </script>
 </body>

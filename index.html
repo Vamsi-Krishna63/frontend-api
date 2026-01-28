@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Simple Frontend</title>
 </head>
+
 <body>
   <h1>Frontend → Backend Test</h1>
 
@@ -12,7 +14,7 @@
   <pre id="output"></pre>
 
   <script>
-    const BACKEND_URL = "PASTE_BACKEND_URL_HERE";
+    const BACKEND_URL = "https://simple-backend-1234567890.europe-west1.run.app";
 
     async function checkHealth() {
       const res = await fetch(`${BACKEND_URL}/health`);
@@ -27,4 +29,5 @@
     }
   </script>
 </body>
+
 </html>
